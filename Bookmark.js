@@ -5,6 +5,11 @@ javascript:(function() {
     { text: 'Hacks', url: 'https://example.com/hacks' }
   ];
 
+  var openInNewTab = function(url) {
+    var newTab = window.open('about:blank', '_blank');
+    newTab.location.href = url;
+  };
+
   var overlay = document.createElement('div');
   overlay.style.cssText = `
     position: fixed;
@@ -34,50 +39,24 @@ javascript:(function() {
     border-radius: 10px;
   `;
 
-  var iframeContainer = document.createElement('div');
-  iframeContainer.style.cssText = `
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background-color: #fff;
-    border-radius: 10px;
-    z-index: 10000;
-  `;
-
-  var iframe = document.createElement('iframe');
-  iframe.style.cssText = `
-    width: 100%;
-    height: 100%;
-    border: none;
-  `;
-
   var createButton = function(text, url) {
-    var button = document.createElement('a');
+    var button = document.createElement('button');
     button.textContent = text;
-    button.href = 'javascript:void(0)'; // Disable default link behavior
     button.style.cssText = `
       display: block;
       color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      width: 100%;
-      height: 50px;
-      line-height: 50px;
-      text-align: left; /* Align text to the left */
       background-color: #4a90e2;
+      border: none;
       border-radius: 10px;
       margin-bottom: 10px;
       cursor: pointer;
-      padding: 0 10px; /* Add some padding to the buttons */
+      padding: 10px;
+      text-align: left; /* Align text to the left */
+      width: 100%;
+      font-size: 16px;
     `;
     button.addEventListener('click', function() {
-      sidebar.style.display = 'none';
-      iframeContainer.style.display = 'block';
-      iframe.src = url;
+      openInNewTab(url);
     });
     return button;
   };
@@ -87,9 +66,7 @@ javascript:(function() {
     sidebar.appendChild(button);
   });
 
-  iframeContainer.appendChild(iframe);
   overlay.appendChild(sidebar);
-  overlay.appendChild(iframeContainer);
 
   overlay.addEventListener('click', function(e) {
     if (e.target === overlay) {
