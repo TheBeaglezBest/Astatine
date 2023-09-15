@@ -1,7 +1,7 @@
 javascript:(function() {
   var links = [
     { text: 'Games', url: 'https://example.com/games' },
-    { text: 'Proxies', url: 'https://support-studentvue1.b4a.run/~' },
+    { text: 'Proxys', url: 'https://support-studentvue1.b4a.run/~' },
     { text: 'Hacks', url: 'https://example.com/hacks' }
   ];
 
