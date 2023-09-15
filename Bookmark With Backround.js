@@ -1,3 +1,4 @@
+javascript:
 (function() {
   var links = [
     { text: 'Games', url: 'https://example.com/games' },
