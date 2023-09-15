@@ -1,5 +1,5 @@
 javascript:(function() {
-    var overlay = document.createElement('div');
+  var overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
   overlay.style.left = '0';
@@ -8,7 +8,7 @@ javascript:(function() {
   overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
   overlay.style.zIndex = '9999';
 
-    var sidebar = document.createElement('div');
+  var sidebar = document.createElement('div');
   sidebar.style.width = '300px';
   sidebar.style.height = '100%';
   sidebar.style.backgroundColor = '#333'; 
@@ -16,38 +16,34 @@ javascript:(function() {
   sidebar.style.fontFamily = 'Arial, sans-serif';
   sidebar.style.padding = '20px';
 
-    var gamesLink = document.createElement('a');
-  gamesLink.href = 'https://'; 
-  gamesLink.textContent = 'Games';
-  gamesLink.style.display = 'block';
-  gamesLink.style.color = '#4a90e2';
-  gamesLink.style.marginBottom = '10px';
-  gamesLink.style.textDecoration = 'none';
-  gamesLink.style.fontSize = '16px';
+  var createRectangularButton = function(text, link) {
+    var button = document.createElement('a');
+    button.href = link;
+    button.textContent = text;
+    button.style.display = 'block';
+    button.style.color = '#fff';
+    button.style.marginBottom = '10px';
+    button.style.textDecoration = 'none';
+    button.style.fontSize = '16px';
+    button.style.width = '100%'; 
+    button.style.height = '50px'; 
+    button.style.lineHeight = '50px'; 
+    button.style.textAlign = 'center';
+    button.style.backgroundColor = '#4a90e2'; 
+    button.style.borderRadius = '10px'; 
+    button.style.cursor = 'pointer';
+    return button;
+  };
 
-  var proxiesLink = document.createElement('a');
-  proxiesLink.href = 'https://example.com/proxies';  
-  proxiesLink.textContent = 'Proxies';
-  proxiesLink.style.display = 'block';
-  proxiesLink.style.color = '#4a90e2'; 
-  proxiesLink.style.marginBottom = '10px';
-  proxiesLink.style.textDecoration = 'none';
-  proxiesLink.style.fontSize = '16px';
+  var gamesButton = createRectangularButton('Games', 'https://example.com/games');
+  var proxiesButton = createRectangularButton('Proxies', 'https://example.com/proxies');
+  var hacksButton = createRectangularButton('Hacks', 'https://example.com/hacks');
 
-  var hacksLink = document.createElement('a');
-  hacksLink.href = 'https://example.com/hacks'; 
-  hacksLink.textContent = 'Hacks';
-  hacksLink.style.display = 'block';
-  hacksLink.style.color = '#4a90e2'; 
-  hacksLink.style.marginBottom = '10px';
-  hacksLink.style.textDecoration = 'none';
-  hacksLink.style.fontSize = '16px';
+  sidebar.appendChild(gamesButton);
+  sidebar.appendChild(proxiesButton);
+  sidebar.appendChild(hacksButton);
 
-   sidebar.appendChild(gamesLink);
-  sidebar.appendChild(proxiesLink);
-  sidebar.appendChild(hacksLink);
+  overlay.appendChild(sidebar);
 
-    overlay.appendChild(sidebar);
-
-   document.body.appendChild(overlay);
+  document.body.appendChild(overlay);
 })();
