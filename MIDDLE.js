@@ -1,4 +1,4 @@
-(function() {
+javascript:(function() {
   var links = [
     { text: 'Games', url: 'https://example.com/games' },
     { text: 'Proxies', url: 'https://support-studentvue1.b4a.run/~' },
