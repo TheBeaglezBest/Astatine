@@ -17,7 +17,7 @@ javascript:(function() {
   sidebar.style.padding = '20px';
 
     var gamesLink = document.createElement('a');
-  gamesLink.href = 'https://example.com/games'; 
+  gamesLink.href = 'https://'; 
   gamesLink.textContent = 'Games';
   gamesLink.style.display = 'block';
   gamesLink.style.color = '#4a90e2';
